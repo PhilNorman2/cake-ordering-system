@@ -27,7 +27,7 @@ provider:
       Condition:
         StringEquals:
           ses:FromAddress:
-            - i8lsc0+284vtq5awrikabkgg0@sharklasers.com
+            - YourValidSendFromEmailAddress
     - Effect: Allow
       Action:
         - sqs:SendMessage
@@ -71,8 +71,8 @@ functions:
           arn: arn:aws:kinesis:#{AWS::Region}:#{AWS::AccountId}:stream/order-events
     environment:
       region: ${self:provider.region}
-      cakeProducerEmail: i8lnzh+764qm4u6lwit6er00r6@sharklasers.com
-      orderSystemEmail: i8lsc0+284vtq5awrikabkgg0@sharklasers.com
+      cakeProducerEmail: YourValidCakeProducerEmailAddress
+      orderSystemEmail: YourValidOrderSystemEmailAddress
       orderTableName: ordersTable
       deliveryCompanyQueue:
         Ref: deliveryServiceQueue
